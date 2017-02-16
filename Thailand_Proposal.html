@@ -8,6 +8,13 @@
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
+        <style>
+            .citation {
+            bottom:0px !important;
+            position:relative !important;
+            line-height:1 !important;
+            }
+        </style>
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -24,12 +31,14 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-                <section data-markdown data-background-image='images/thailand/jungle2.jpg'>
+                <!-- <section data-markdown data-background-image='images/thailand/jungle.jpg'> -->
+                <section data-markdown data-background-image='images/thailand/rainforest.gif' data-state="dimbg"> 
+                <section>
                     <script type="text/template">
-                        ##Investigating Forest Degradation in Southeast Asia
+                        ##Improved Estimation of Carbon Emissions from Forest Degradation Through Multi-Sensor Time Series Analysis
                         ---
 
-                        ###By Eric Bullock
+                        ###By Eric Bullock & Curtis Woodcock
 
                         ___
 
@@ -38,124 +47,131 @@
                         <img src="images/nasalog.png" height="100" border="0">
                     </script>
                 </section>
+                </section>
                 <section>
-                    <section data-markdown data-background-image='images/thailand/jungle5.jpg'>
+                    <section data-markdown data-background-image='images/thailand/jungle.jpg'>
                         <script type="text/template">
                             ##Background
                         </script>
                     </section>
-                    <section data-background-image='images/thailand/jungle5.jpg'>
-                        Degradation effects as much as 10x amount of forests as deforestation (IPCC 4th Assessment Report)
-                    </section>
-                    <section data-markdown data-background-image='images/thailand/jungle5.jpg'>
+                    <section data-markdown data-background-image='images/thailand/jungle.jpg'>
                         <script type="text/template">
-                            REDD+: Reduced Emissions From Deforestation and *Degradation*
+                        <img src="images/thailand/carbon_cycle.jpg" height="464.25" width="484.25" style="border:5px solid black;"><font size="4">1.</font>
+                        
+                         Yearly emissions:
+                        <font size="6"> </font><size="6">Fossil fuels </font><font size="6">: 7.8 <u>+</u> </font><font color="red" size="6">0.6</font><font size="6"> PgC yr</font><sup><font size="4">-1</sup></font>
+                        <br>
+                        <font size="6"> </font><size="6">Land cover change </font><font size="6">: 1.1 <u>+</u> </font><font color="red" size="6">0.8</font><font size="6"> PgC yr</font><sup><font size="4">-1</sup></font>
                         </script>
                      </section>
-                    <section data-background-image='images/thailand/jungle5.jpg'>
-                        Currently no operational way of detecting degradation
+                    <section data-markdown data-background-image='images/thailand/jungle.jpg'>
+                        <script type="text/template">
+                        <img src="images/thailand/emissions_luluc.jpg" style="border:5px solid black;"><font size="4">1.</font>
+                        </script>
                      </section>
-                     <section data-background-image='images/thailand/jungle5.jpg'>
-                        Difficulties due to highly varying causes and subtle impact on canopy
-                      </section>
+                    <section data-markdown data-background-image='images/thailand/jungle.jpg'>
+                        <script type="text/template">
+                            ##Background
+                            <p style="text-align: left;"><span class="fragment">- While total emissions from land use change is much smaller than fossil fuels, the uncertainty is <i>larger</i></span></p>
+                            <p style="text-align: left;"><span class="fragment">- The majority of emissions from land use change come from deforestation and forest degradation<sup><font size="4">2</sup></font></span></p>
+                            <p style="text-align: left;"><span class="fragment">- Large uncertainties exist in the <i>extent</i> and <i>change</i> in terrestrial carbon pool<sup><font size="4">3</sup></font></span></p>  
+                            <p style="text-align: left;"><span class="fragment">- Emissions from <i>degradation</i> as much as 10x that of deforestation, but currently largely unaccounted for in estimates<sup><font size="4">1</sup></font></span></p> 
+                            <br>
+                        </script>
+                    </section>
+                    <section data-markdown data-background-image='images/thailand/jungle.jpg'>
+                        <script type="text/template">
+                        ##What is forest degradation? 
+                        <p style="text-align: left;"><span class="fragment">- Decrease in the condition of a forest without a change in land cover.</font></span></p>
+                        <p style="text-align: left;"><span class="fragment">- Many different causes and forms, including: selective logging, wood gathering, poaching, conversion to plantation, insects, and soil depletion. </p>
+                        <p style="text-align: left;"><span class="fragment">- REDD+: Reduced Emissions From Deforestation and <i>Degradation</i></p>
+                        <p style="text-align: left;"><span class="fragment">- Currently, no operational way of detecting degradation at a large scale. </p> 
+                        </script>
+                    </section>
                 </section>
                 <section>
-                    <section data-markdown data-background-image='images/thailand/jungle4.jpg'>
+                    <section data-markdown data-background-image='images/thailand/jungle.jpg'>
                         <script type="text/template">
                             ##Objectives
                         </script>
                     </section>
-                    <section data-background-image='images/thailand/jungle4.jpg'>
-                        1. Evaluate the responses in both optical and radar time series to varying forms of forest degradation.
+                    <section data-markdown data-background-image='images/thailand/jungle.jpg'>
+                        <script type="text/template">
+                            <p style="text-align: left; font-size: 64px;">Technical Objective</p>
+                            * Develop a methodology to automatically detect and quantify subtle changes in biomass
+
+                            <br>
+                            <p style="text-align: left; font-size: 64px;">Research Objective</p>
+                            * Reduce uncertainty in estimates of carbon emissions from forest degradation
+                        </script>
                     </section>
-                    <section data-background-image='images/thailand/jungle4.jpg'>
-                        2. Develop a methodology to identify areas of forest that have been degraded over time.
-                     </section>
-                     <section data-background-image='images/thailand/jungle4.jpg'>
-                        3. Map degraded forests across Thailand 
-                      </section>
-                     <section data-background-image='images/thailand/jungle4.jpg'>
-                        4. Investigate the relationship between the temporal responses of degradation in remote sensing data and biomass reduction at the plot level.
-                      </section>
-                     <section data-background-image='images/thailand/jungle4.jpg'>
-                        5. Calculate the carbon emissions from degradation for Thailand and compare it to estimates of emissions from deforestation.
-                      </section>
+                    <section data-markdown data-background-image='images/thailand/jungle.jpg'>
+                        <script type="text/template">
+                        ## Project Objectives
+                        <p style="text-align: left;"><span class="fragment">1. Evaluate the responses in both optical and radar time series to varying forms of forest degradation. 
+                        <p style="text-align: left;"><span class="fragment">2. Develop a methodology to identify areas of forest that have been degraded over time.
+                        <p style="text-align: left;"><span class="fragment">3. Map degraded forests across Thailand.
+                        <p style="text-align: left;"><span class="fragment">4. Investigate the relationship between the temporal responses of degradation in remote sensing data and biomass reduction at the plot   level.
+                        <p style="text-align: left;"><span class="fragment">5. Calculate the carbon emissions from degradation for Thailand and compare it to estimates of emissions from deforestation.
+                        </script>
+                    </section>
                 </section>
                 <section>
-                    <section data-markdown data-background-image='images/thailand/jungle6.jpg'>
-                        <script type="text/template">
-                            ##Examples
-                        </script>
+                  <section data-markdown data-background-image='images/thailand/World_Background.png' data-background-transition='zoom'>
                     </section>
-                    <section data-background-image='images/thailand/jungle6.jpg'>
-                        'Seasonal' rubber plantations
-                        <br>
-                        <br>
-                        <img src="images/thailand/rubber.png">
+                    <section data-background-image='images/thailand/Vietnam_Background.png'>
                     </section>
-                    <section data-background-image='images/thailand/jungle6.jpg'>
-                        Damage around one of the dozens of refugee camps near Thailand-Burma border
-                        <br>
-                        <br>
-                        <img src="images/thailand/refugee.png">
-                     </section>
-                     <section data-background-image='images/thailand/jungle6.jpg'>
-                        Comparing Landsat and PALSAR shows a gradual transition to managed forest
-                        <br>
-                        <br>
-                        <img src="images/thailand/radar.png">
-                      </section>
-                     <section data-background-image='images/thailand/jungle6.jpg'>
-                        Thinning and then recovery in mangrove forest
-                        <br>
-                        <br>
-                        <img src="images/thailand/mangrove.png">
-                      </section>
+                    <section data-background-image='images/thailand/Brazil_Background.png'>
+                    </section>
+                    <section data-background-image='images/thailand/Thailand_Background_Rubber.png' data-background-transition='none out'>
+                    </section>
+                    <section data-background-image='images/thailand/Thailand_Background_Radar.png' data-background-transition='none'>
+                    </section>
+                    <section data-background-image='images/thailand/Thailand_Background_Refugee.png' data-background-transition='none'>
+                    </section>
                 </section>
-                <section data-background-image='images/thailand/forest2.jpg'>
-                    <section data-markdown>
+                <section>
+                    <section data-markdown data-background-image='images/thailand/jungle.jpg'>
                         <script type="text/template">
-                            ##Supporting Work
+                            ##Supporting work
+                            <p style="text-align: left;"><span class="fragment">- Previous landcover change mapping in Thailand and other tropical countries </span></p>
+                            <p style="text-align: left;"><span class="fragment">- LIDAR-dereived biomass map of Thailand from the TREEMAPS initiative</span></p>
+                            <p style="text-align: left;"><span class="fragment">- Field inventory data dating back to early 1990s from the Department of National Parks (DNP) in Thailand and IDEAM in Colombia</span></p>
+                            <p style="text-align: left;"><span class="fragment">- Previous advancements made by myself and colleagues in time series analysis and data fusion for forest monitoring
+                            <p style="text-align: left;"><span class="fragment">- Field campaign in March 2017 to collect field data in Pohnpei, Micronesia</span></p>
+                            <p style="text-align: left;".<span class="fragment">- Participating in REDD+ capacity-building workshops in Peru, Republic of the Congo, Vietnam, Ivory Coast, and Boston</span></p>
                         </script>
                     </section>
-                    <section>
-                        Previous CCDC results in region
-                        <br>
-                        <br>
-                        <img src="images/thailand/ccdc.jpg">
-                    </section>
-                    <section>
-                        LIDAR-derived carbon map of country
-                        <br>
-                        <br>
-                        <img src="images/thailand/treemaps.jpg">
-                        <font size="4">Source: World Wildlife Fund</font> 
-                     </section>
-                     <section>
-                        Field inventory data dating back to early 1990s from the Department of National Parks (DNP). 
-                      </section>
                 </section>
-                <section data-background-image='images/thailand/forestroad.jpg'>
-                    <section data-markdown>
+                <section>
+                    <section data-markdown data-background-image='images/thailand/jungle.jpg'>
                         <script type="text/template">
-                            ##First steps
+                            ##Thanks!
+                            ###References:
+                             <p style="line-height:1; text-align: left;"><font size="4">
+                             1. IPCC, 2014: Climate Change 2014: Synthesis Report. Contribution of Working Groups I, II    and III to the Fifth Assessment Report of the Intergovernmental    Panel on Climate Change [Core Writing Team, R.K. Pachauri and L.A. Meyer (eds.)]. IPCC, Geneva, Switzerland, 151 pp.
+                             <br> 
+                             <br> 
+                             2. Houghton, R. A. 1999. The annual net flux of carbon to the atmosphere from changes in land use 1850–1990. Tellus 51B, 298–313.
+                             <br> 
+                             <br> 
+ 
+                             3. Houghton, R. A. 2003. Why are estimates of the terrestrial carbon balance so different?. Global change biology, 9(4), 500-509.
+                             <br> 
+                             <br> 
+
+                             4. Bullock, E., Fagherazzi, S., Nardin, W., Vo-Luong, P., Nguyen, P., Woodcock, C. (2016). Temporal patterns in species zonation in a mangrove forest in the Mekong Delta, Vietnam, using a time series of Landsat imagery. Continental Shelf Research. Manuscript submitted for publication. 
+                             <br> 
+                             <br> 
+
+                             5. Souza, C. M., Roberts, D. A., & Cochrane, M. A. (2005). Combining spectral and spatial information to map canopy damage from selective logging and forest     fires. Remote Sensing of Environment, 98(2), 329-343.
+                             <br> 
+                             <br> 
+ 
+                             6. "TREEMAPS" (2015). World Wildlife Fund.
+                             </font></p>
                         </script>
                     </section>
-                    <section>
-                        1. Contact acquaintance at Department of National Parks Thailand and SylvaCarbon.
-                    </section>
-                    <section>
-                        2. Further explore radar, Landsat, and Sentinel signatures of known-degraded land. 
-                     </section>
-                     <section>
-                        3. Explore the use of meteorological data to stablize C-band radar time series. 
-                      </section>
-                     <section>
-                        4. ????? 
-                     </section>
-                     <section>
-                        5. Save the world and graduate!  
-                     </section>
                 </section>
 
 			</div>
@@ -167,16 +183,35 @@
 		<script>
 			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
-				history: true,
-
+			   history: true,
+               center:true,
+               height:"100%",
+               width:"100%",
+               controls:false,
+                 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
+                     { src: 'plugin/anything/anything.js' },
+                    { src: 'plugin/anything/d3/d3.v3.min.js' },
+                    { src: 'plugin/anything/d3.patch.js' },
+                    { src: 'plugin/anything/d3/queue.v1.min.js' },                               
+                    { src: 'plugin/anything/d3/topojson.v1.min.js' },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
 				]
 			});
 		</script>
+        <script>
+       Reveal.configure({
+  keyboard: {
+    37: Reveal.prev, // left
+    38: Reveal.prev, // up
+    39: Reveal.next, // right
+    40: Reveal.next, // down
+  }
+});
+</script>
 	</body>
 </html>

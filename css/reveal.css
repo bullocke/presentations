@@ -53,6 +53,11 @@ html:-webkit-full-screen-ancestor {
 html:-moz-full-screen-ancestor {
   background-color: inherit; }
 
+html.dimbg .slide-background {
+    opacity: 0.3 !important;
+}
+
+
 /*********************************************
  * VIEW FRAGMENTS
  *********************************************/
@@ -329,6 +334,7 @@ html:-moz-full-screen-ancestor {
   bottom: 0;
   left: 0;
   margin: auto;
+  margin-top: 0;
   overflow: visible;
   z-index: 1;
   text-align: center;
@@ -338,7 +344,8 @@ html:-moz-full-screen-ancestor {
           perspective-origin: 50% 40%; }
 
 .reveal .slides > section {
-  -ms-perspective: 600px; }
+  -ms-perspective: 600px; 
+}
 
 .reveal .slides > section,
 .reveal .slides > section > section {
