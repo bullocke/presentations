@@ -57,6 +57,9 @@ html.dimbg .slide-background {
     opacity: 0.3 !important;
 }
 
+html.bgimg .slide-background {
+     background-size: 90%;
+}
 
 /*********************************************
  * VIEW FRAGMENTS
